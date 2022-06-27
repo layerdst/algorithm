@@ -1,6 +1,7 @@
 package algorithm;
 
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class GaussSum {
     //가우스 덧셈
@@ -20,6 +21,16 @@ public class GaussSum {
     }
 
     public static void main(String[] args) {
-        System.out.println(gaussSum(2,10));
+
+        Scanner stdin = new Scanner(System.in);
+        System.out.println("a부터 b까지 합");
+        System.out.println("a");
+        int a = stdin.nextInt();
+        System.out.println("b");
+        int b = stdin.nextInt();
+
+
+        System.out.println("합은 " + gaussSum(a, b));
+
     }
 }
