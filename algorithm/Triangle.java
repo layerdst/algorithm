@@ -50,10 +50,8 @@ public class Triangle {
             System.out.println();
             for(int j=1;j<=2*a-1;j++){
                 System.out.print(" ");
-                if(j==a/2+1){
-                    System.out.print(j);
-                }else if(j>=a/2+1-i && j<=a/2+1+i){
-                    System.out.print(j);
+                if(j>=a-i && j<=a+i){
+                    System.out.print("*");
                 }
             }
         }
@@ -64,6 +62,6 @@ public class Triangle {
         triangleLU(5);
         triangleRU(5);
         triangleRB(5);
-        pyramid(4);
+        pyramid(5);
     }
 }
