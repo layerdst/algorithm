@@ -45,7 +45,8 @@ public class Triangle {
         }
     }
 
-    static void pyramid(int a){
+    static void pyramid(int a) {
+        
         for(int i = 0 ; i<a;i++){
             System.out.println();
             for(int j=1;j<=2*a-1;j++){
