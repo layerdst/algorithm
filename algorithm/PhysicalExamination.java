@@ -46,6 +46,15 @@ public class PhysicalExamination {
         }
     }
 
+    static void reverse(int [] temp){
+        int s;
+        for(int i=0; i<temp.length/2;i++){
+            s = temp[i];
+            temp[i] = temp[temp.length-1-i] ;
+            temp[temp.length-1-i] = s;
+        }
+    }
+
     public static void main(String[] args) {
         PhycsData[] x = {
                 new PhycsData("김", 125, 0.3),
@@ -71,9 +80,5 @@ public class PhysicalExamination {
             System.out.print(" : " + temp);
             System.out.println();
         }
-
     }
-
-
-
 }
