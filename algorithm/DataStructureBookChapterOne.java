@@ -73,6 +73,125 @@ public class ExampleChapterOne {
         }
 
     }
+    
+    ublic void doubleFor(){
+        System.out.println("  | 1 2 3 4 5 6 7 8 9");
+        System.out.println("---+-------------------");
+        for(int i = 1; i<10;i++){
+            System.out.print(i + " |" );
+            for(int j = 1 ;j<10 ; j++){
+                System.out.print(" "+ i*j);
+            }
+            System.out.println();
+        }
+    }
+
+    public void square(){
+
+        Scanner std = new Scanner(System.in);
+        System.out.print("변의 길이 : ");
+
+        int x = 0;
+
+        x = std.nextInt();
+
+        for(int i =0;i<x;i++){
+            System.out.println("*".repeat(x));
+        }
+    }
+
+    public void rightTriangle(){
+        int x = 0;
+        Scanner std = new Scanner(System.in);
+        System.out.print("변의 길이 : ");
+
+        x=std.nextInt();
+
+        for(int i =1;i<=x;i++){
+            System.out.println("*".repeat(i));
+        }
+    }
+
+    public void triangleLU(){
+
+        Scanner std = new Scanner(System.in);
+        System.out.print("변의 길이 : ");
+
+        int x = 0;
+
+        x=std.nextInt();
+        for(int i =x;i>0;i--){
+            System.out.println("*".repeat(i));
+        }
+
+    }
+
+    public void triangleRU(){
+
+        Scanner std = new Scanner(System.in);
+        System.out.print("변의 길이 : ");
+
+        int x = 0;
+        x=std.nextInt();
+
+        for(int i =x;i>0;i--){
+            for(int j = 1;j<=x;j++){
+                if(i+j>x){
+                    System.out.print("*");
+                }else{
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+
+    }
+
+    public void triangleRB(){
+
+        Scanner std = new Scanner(System.in);
+        System.out.print("변의 길이 : ");
+
+        int x = 0;
+        x=std.nextInt();
+
+        for(int i =x;i>0;i--){
+            for(int j = 1;j<=x;j++){
+                if(i<=j){
+                    System.out.print("*");
+                }else{
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public void pyramid(int n){
+        for(int i=1 ; i<=n; i++){
+            for(int j=0;j<2*n+1;j++) {
+                if((2*n+1)/2-i<j && (2*n+1)/2+i>j){
+                    System.out.print("*");
+                }else{
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
+
+    public void pyramidNum(int n){
+        for(int i=1 ; i<=n; i++){
+            for(int j=0;j<2*n+1;j++) {
+                if((2*n+1)/2-i<j && (2*n+1)/2+i>j){
+                    System.out.print(i);
+                }else{
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+    }
 
     public static void main(String[] args) {
 
