@@ -193,11 +193,63 @@ public class ExampleChapterOne {
         }
     }
 
+public void swap(int[] a, int b, int c){
+        int t = a[b];
+        a[b] = a[c];
+        a[c] = t;
+    }
+
+    public int[] reversArray(int [] arr){
+        int[] temp = arr;
+        for(int i = 0;i< temp.length/2;i++){
+            swap(temp,i, temp.length-1-i);
+        }
+        return temp;
+    }
+
+    public int [] reverseTest(int [] arr){
+        int temp [] = arr;
+        for(int i = 0; i<arr.length/2;i++){
+            swap(temp, i, temp.length-1-i);
+            System.out.println("a["+i+"]"+"과"+"a["+(temp.length-1-i)+"]을 교환합니다");
+        }
+        return temp;
+    }
+
+    public int sum(int [] arr){
+        int sum = 0;
+        for(int i = 0; i<arr.length;i++){
+            sum = sum+arr[i];
+        }
+        return sum;
+    }
+
+    public int[] copy(int [] arr) {
+        int[] temp = new int[arr.length];
+        for(int i = 0 ;i<arr.length;i++){
+            temp[i] = arr[i];
+        }
+        return temp;
+    }
+
+    public int[] reversCopy(int[] arr){
+        int [] temp = new int[arr.length];
+        for(int i = 0 ; i<arr.length;i++){
+            temp[i] = arr[arr.length-i-1];
+        }
+        return temp;
+    }
+
+
     public static void main(String[] args) {
 
         ExampleChapterOne exampleChapterOne = new ExampleChapterOne();
-        exampleChapterOne.printStart();
+        int [] temp = {1,2,3,4,5};
 
+//        int [] reverseTemp = exampleChapterOne.reversArray(temp);
+//            int [] reversTemp = exampleChapterOne.reverseTest(temp);
+
+        Arrays.stream(exampleChapterOne.reversCopy(temp)).forEach(System.out::print);
     }
 
 }
