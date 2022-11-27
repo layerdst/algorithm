@@ -241,6 +241,38 @@ public void swap(int[] a, int b, int c){
     }
 
 
+        public List<String> xNumber(int input, int x){
+        List<String> temp = new ArrayList<>();
+        String dchar = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        do{
+            temp.add(String.valueOf(dchar.charAt(input % x)));
+            input /= x;
+        }while (input != 0);
+        return reverseArray(temp);
+    }
+
+    public List<String> detailXNumber(int input, int x){
+        List<String> temp = new ArrayList<>();
+        String dchar = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String tempDchar;
+        System.out.println( x + "|    " + input);
+        do{
+            System.out.println("+-------------");
+
+            tempDchar = String.valueOf(dchar.charAt(input%x));
+            temp.add(tempDchar);
+            input /= x;
+            System.out.println( x + "|    " + input + " ---- " + tempDchar);
+        }while (input != 0);
+
+        System.out.print(x +"진수로 ");
+        reverseArray(temp).stream().forEach(System.out::print);
+        System.out.print("입니다");
+
+        return temp;
+    }
+
+
     public static void main(String[] args) {
 
         ExampleChapterOne exampleChapterOne = new ExampleChapterOne();
@@ -250,6 +282,9 @@ public void swap(int[] a, int b, int c){
 //            int [] reversTemp = exampleChapterOne.reverseTest(temp);
 
         Arrays.stream(exampleChapterOne.reversCopy(temp)).forEach(System.out::print);
+        System.out.println(exampleChapterOne.detailXNumber(100, 2));
+
+
     }
 
 }
