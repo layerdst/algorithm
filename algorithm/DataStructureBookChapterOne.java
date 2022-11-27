@@ -193,7 +193,7 @@ public class ExampleChapterOne {
         }
     }
 
-public void swap(int[] a, int b, int c){
+    public void swap(int[] a, int b, int c){
         int t = a[b];
         a[b] = a[c];
         a[c] = t;
@@ -241,7 +241,7 @@ public void swap(int[] a, int b, int c){
     }
 
 
-        public List<String> xNumber(int input, int x){
+    public List<String> xNumber(int input, int x){
         List<String> temp = new ArrayList<>();
         String dchar = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         do{
@@ -273,6 +273,74 @@ public void swap(int[] a, int b, int c){
     }
 
 
+    public int primeNumber(int x){
+        int count=0;
+        for (int i=2; i<=x; i++) {
+            for(int j=2; j<=i; j++){
+                count++;
+                if(i==j){
+                    System.out.println(i);
+                }
+                if(i%j==0){
+                    break;
+                }
+            }
+        }
+        return count;
+    }
+
+    public int primeNumber1(int x){
+        int count = 0;
+        int ptr=0;
+        int[] prime = new int[500];
+        prime[ptr++] = 2;
+
+        for(int i = 3;i<=x;i+=2){
+            int j;
+            for(j = 1;j<ptr;j++){
+                count++;
+                if(i%prime[j]==0){
+                    break;
+                }
+            }
+            if(ptr == j){
+                prime[ptr++] = i;
+            }
+        }
+        Arrays.stream(prime).forEach(System.out :: print);
+        System.out.println("count" + count);
+        return count;
+    }
+
+    public void primeNumber2(int input){
+        int count = 0;
+        int ptr = 0;
+        int [] prime = new int[600];
+
+        prime[ptr++] = 2;
+        prime[ptr++] = 3;
+
+        for(int i = 5;i<input;i+=2){
+
+            boolean flag = false;
+            int j;
+            for(j = 1; prime[j]*prime[j]<=i;j++){
+                count+=2;
+                if(i%prime[j] == 0){
+                    flag = true;
+                    break;
+                }
+            }
+
+            if(!flag){
+                prime[ptr++] = i;
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+
+
     public static void main(String[] args) {
 
         ExampleChapterOne exampleChapterOne = new ExampleChapterOne();
@@ -281,9 +349,10 @@ public void swap(int[] a, int b, int c){
 //        int [] reverseTemp = exampleChapterOne.reversArray(temp);
 //            int [] reversTemp = exampleChapterOne.reverseTest(temp);
 
-        Arrays.stream(exampleChapterOne.reversCopy(temp)).forEach(System.out::print);
-        System.out.println(exampleChapterOne.detailXNumber(100, 2));
-
+//        Arrays.stream(exampleChapterOne.reversCopy(temp)).forEach(System.out::print);
+//        System.out.println(exampleChapterOne.detailXNumber(100, 2));
+//        System.out.println(exampleChapterOne.primeNumber(1000));
+        exampleChapterOne.primeNumber2(1000);
 
     }
 
