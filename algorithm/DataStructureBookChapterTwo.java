@@ -25,9 +25,9 @@ public class ExampleChapterTwo {
     static void distVision(PhysicData[] data, int[] dist){
         int i = 0;
         dist[i] =0;
-        for(i=0;i< data.length;i++){
-            if(data[i].vision>=0.0 && data[i].vision<=VMAX/10.0){
-                dist[(int)(data[i].vision * 10)]++;
+        for(PhysicData v : data){
+            if(v.vision>=0.0 && v.vision <= VMAX/10.0){
+                dist[(int)(v.vision*10)]++;
             }
         }
     }
