@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class ExampleChapterFour {
 
     static class IntStack{
@@ -84,6 +86,106 @@ public class ExampleChapterFour {
                 System.out.println();
             }
         }
+    }
 
+    static class Stack<E>{
+        private E[] stk;
+        private int capacity;
+        private int ptr;
+
+        public Stack(int maxlen){
+            this.ptr=0;
+            this.capacity = maxlen;
+
+            try{
+                this.stk = (E[]) new Object[capacity];
+            }catch (OutOfMemoryError e){
+                capacity =0;
+            }
+
+
+        }
+
+        public E push(E e){
+            return stk[ptr++] = e;
+        }
+
+        public E pop(){
+            return stk[--ptr];
+        }
+
+        public void dump(){
+            for(int i=0;i<ptr;i++){
+                System.out.print(stk[i] + " ,");
+            }
+        }
+
+    }
+
+    public static void main(String[] args) {
+//        Scanner stdIn = new Scanner(System.in);
+//        IntStack s = new IntStack(64);
+//
+//        while(true){
+//            System.out.println();
+//            System.out.printf("현재데이터개수 : %d / %d\n", s.size(), s.getCapacity());
+//            System.out.println("1 푸시, 2 팝, 3 피크, 4 덤프, 0 종료");
+//
+//            int menu = stdIn.nextInt();
+//            if(menu == 0) break;
+//
+//            int x;
+//            switch (menu){
+//                case 1 :
+//                    System.out.print("데이터 푸시값 : ");
+//                    x = stdIn.nextInt();
+//                    try{
+//                        s.push(x);
+//                    }catch (IntStack.OverflowStackException e){
+//                        System.out.println("스택이 가득참");
+//                    }
+//                    break;
+//
+//                case 2 :
+//
+//                    try{
+//                        x=s.pop();
+//                        System.out.println("팝한 데이터는 " + x +"입니다");
+//
+//                    }catch (IntStack.EmptyIntStackException e){
+//                        System.out.println("스택이 비어있습니다.");
+//                    }
+//                    break;
+//
+//
+//                case 3 :
+//                    try{
+//                        x = s.peek();
+//                        System.out.println("피크한 데이터는 " + x +"입니다");
+//                    }catch (IntStack.EmptyIntStackException e){
+//                        System.out.println("스택이 비어있습니다");
+//                    }
+//                    break;
+//
+//                case 4 :
+//                    try {
+//                        s.dump();
+//                        break;
+//                    }catch (IntStack.EmptyIntStackException e){
+//                        System.out.println("없음");
+//                    }
+//            }
+//
+//        }
+
+        Stack<String> stk = new Stack<>( 64);
+        stk.push("aa");
+        stk.push("bb");
+        stk.push("cc");
+        stk.push("dd");
+
+        stk.pop();
+
+        stk.dump();
     }
 }
