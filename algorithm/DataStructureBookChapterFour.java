@@ -88,39 +88,77 @@ public class ExampleChapterFour {
         }
     }
 
-    static class Stack<E>{
+    static class Stack<E> {
         private E[] stk;
         private int capacity;
         private int ptr;
 
-        public Stack(int maxlen){
-            this.ptr=0;
+        public Stack(int maxlen) {
+            this.ptr = 0;
             this.capacity = maxlen;
 
-            try{
+            try {
                 this.stk = (E[]) new Object[capacity];
-            }catch (OutOfMemoryError e){
-                capacity =0;
+            } catch (OutOfMemoryError e) {
+                capacity = 0;
             }
 
 
         }
 
-        public E push(E e){
+        public E push(E e) {
             return stk[ptr++] = e;
         }
 
-        public E pop(){
+        public E pop() {
             return stk[--ptr];
         }
 
-        public void dump(){
-            for(int i=0;i<ptr;i++){
+        public void dump() {
+            for (int i = 0; i < ptr; i++) {
                 System.out.print(stk[i] + " ,");
             }
         }
-
     }
+
+    static class Que<E> {
+        private int startIdx;
+        private int lastIdx;
+        private int capacity;
+        private int ptr;
+        private E[] que;
+
+      
+        public Que(int capacity) {
+            this.startIdx = 0;
+            this.lastIdx = 0;
+            this.ptr = 0;
+            this.capacity = capacity;
+            try {
+                this.que = (E[]) new Object[capacity];
+            } catch (OutOfMemoryError e) {
+                System.out.println("메모리 에러");
+            }
+        }
+
+        public E enqueue(E e) {
+            lastIdx++;
+            return que[ptr++] = e;
+        }
+
+        public E deque() {
+            if (startIdx >= lastIdx) {
+            }
+            return que[startIdx++];
+        }
+
+        public void dump() {
+            for (int i = startIdx; i < lastIdx; i++) {
+                System.out.print(que[i] + ",");
+            }
+        }
+    }
+
 
     public static void main(String[] args) {
 //        Scanner stdIn = new Scanner(System.in);
@@ -178,14 +216,36 @@ public class ExampleChapterFour {
 //
 //        }
 
-        Stack<String> stk = new Stack<>( 64);
-        stk.push("aa");
-        stk.push("bb");
-        stk.push("cc");
-        stk.push("dd");
+//        Stack<String> stk = new Stack<>( 64);
+//        stk.push("aa");
+//        stk.push("bb");
+//        stk.push("cc");
+//        stk.push("dd");
+//
+//        stk.pop();
+//
+//        stk.dump();
 
-        stk.pop();
+        Que<String> stringQue = new Que<>(64);
+        stringQue.enqueue("a");
+        stringQue.enqueue("b");
+        stringQue.enqueue("c");
+        stringQue.enqueue("d");
+        stringQue.enqueue("e");
+        stringQue.enqueue("f");
 
-        stk.dump();
+
+        stringQue.dump();
+
+        stringQue.deque();
+        stringQue.deque();
+        stringQue.deque();
+        stringQue.deque();
+
+        System.out.println();
+
+        stringQue.dump();
+
+
     }
 }
