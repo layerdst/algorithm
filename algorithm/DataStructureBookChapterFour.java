@@ -158,6 +158,61 @@ public class ExampleChapterFour {
             }
         }
     }
+    
+    static class IntQueue{
+    	
+    	private int[] que;
+    	private int capacity;
+    	private int front;
+    	private int rear;
+    	private int num;
+    	
+    	
+    	public IntQueue(int maxlen) {
+    		num = front = rear = 0;
+    		capacity=maxlen;
+    		que= new int[capacity];
+    	}
+    	
+    	public int enque(int x) {
+    		if(num>=capacity) {
+    			System.out.println("오버플로우");
+    		}
+    		que[rear++] = x;
+    		num++;
+    		if(rear== capacity){
+    			rear = 0;
+    		}
+    		return x;
+    	}
+    	
+    	public int deque() {
+    		if(num<=0) {
+    			System.out.println("비었음");
+    		}
+    		int x = que[front++];
+    		num --;
+    		if(front == capacity) {
+    			front = 0;
+    		}
+    		return x;
+    	}
+    	
+    	public void dump() {
+    		if(num<=0) {
+    			System.out.println("비었음 ");
+    		}
+    		
+    		for(int i = 0 ; i<num; i++) {
+    			System.out.println(que[(i+front)/capacity] + ", ");
+    		}
+    		
+    	}
+    	
+    	
+  
+		// TODO Auto-generated constructor stub
+	}
 
 
     public static void main(String[] args) {
