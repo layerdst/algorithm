@@ -213,6 +213,102 @@ public class ExampleChapterFour {
   
 		// TODO Auto-generated constructor stub
 	}
+	}
+
+	 static class Queue<E>{
+		E[] que;
+		int front;
+		int rear;
+		int num;
+		int capacity;
+
+		public Queue(int cap) {
+			front =rear= num = 0;
+			capacity= cap;
+			E[] que = (E[])new Object[capacity];
+		}
+
+		public void enque(E e) {
+			que[rear++] = e;
+			num++;
+
+			if(rear == capacity) {
+				rear = 0;
+			}
+		}
+
+		public E deque() {
+
+			if(num<=0) {
+				System.out.println("없음 ");
+			}
+
+			if(front == capacity) {
+				front =0;
+			}
+			return que[front--];
+
+		}
+
+	}
+
+	static class DoubleQueue {
+		int front;
+		int rear;
+		int capacity;
+		int num;
+		int[] doubleQue;
+
+		public DoubleQueue(int len) {
+			front = rear = num =0;
+			capacity = len;
+			doubleQue = new int[len];
+		}
+
+		public void inDoubleQueue(int x) {
+			if(front == 0) {
+				front = capacity-1;
+				doubleQue[front] = x;
+			}else {
+				doubleQue[front--]=x;
+			}
+
+			if(rear == capacity) {
+				rear = 0;
+				doubleQue[rear] = x;
+			}else {
+				doubleQue[++rear]=x;
+			}
+
+			num = num+2;
+
+			if(num >= capacity) {
+				System.out.println("");
+			}
+		}
+
+		public void deDoubleQueue() {
+			num = num -2;
+			if(num <= 0) {
+				System.out.println("empty");
+			}
+
+			int x = doubleQue[front++];
+
+			if(front == capacity ) {
+				front = 0; 
+			}
+
+			int y= doubleQue[rear];
+
+			if(--rear < 0) {
+				rear = capacity - 1;
+			}
+
+
+		}
+
+	}
 
 
     public static void main(String[] args) {
