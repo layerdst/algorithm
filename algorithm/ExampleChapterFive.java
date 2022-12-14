@@ -25,6 +25,58 @@ class ExampleChapterFive{
 		}
 	}
 	
+	static class IntStack{
+		int capacity;
+		int ptr;
+		int [] stack;
+		
+		public IntStack(int len) {
+			this.capacity = len;
+			ptr = 0;
+			stack = new int[len];
+		}
+		
+		public void push(int x) {
+			stack[ptr++] = x;
+		}
+		
+		public int pop() {
+			if(--ptr<0) {
+				return 0;
+			}
+			return stack[ptr];
+		}
+		
+		public boolean isEmpty() {
+			return ptr<=0 ? false : true;
+		}
+		
+	}
+	
+	static class Recur{
+		static void recur(int n) {
+			IntStack s = new IntStack(n);
+			
+			while(true) {
+				if(n>0) {
+					s.push(n);
+					n = n-1;
+					continue;
+				}
+				
+				if(s.isEmpty()!= true) {
+					n = s.pop();
+					System.out.println(n);
+					n = n-2;
+					continue;
+				}
+				break;
+			
+			}
+		}
+		
+	}
+	
 	static class Euclid{
 		static int gcd(int x, int y) {
 			return y==0 ? x : gcd(y, x%y);
