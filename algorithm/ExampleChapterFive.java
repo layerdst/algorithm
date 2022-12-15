@@ -77,6 +77,25 @@ class ExampleChapterFive{
 		
 	}
 	
+	static class RecurMemo{
+		static String[] memo;
+		
+		static void recur(int n) {
+			if(memo[n+1] != null) {
+				System.out.println(memo[n+1]);
+			}else {
+				if(n>0) {
+					recur(n-1);
+					System.out.println(n);
+					recur(n-2);
+					memo[n+1] = memo[n] + "\n" + memo[n-1];
+				}else {
+					memo[n+1] = "";
+				}
+			}
+		}
+	}
+	
 	static class Euclid{
 		static int gcd(int x, int y) {
 			return y==0 ? x : gcd(y, x%y);
