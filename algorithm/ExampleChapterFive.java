@@ -96,6 +96,21 @@ class ExampleChapterFive{
 		}
 	}
 	
+	static class Hanoi{
+		static void move(int no, int x, int y) {
+			if(no > 1) {
+				move(no - 1, x,6 -x -y);
+			}
+			
+			System.out.printf("원반 [%d] 를 %d번 기둥에서 %d 번 기둥으로 옮김 \n", no, x, y);
+			
+			if(no > 1) {
+				move(no - 1, 6-x-y, y);
+			}
+			
+		}
+	}
+	
 	static class Euclid{
 		static int gcd(int x, int y) {
 			return y==0 ? x : gcd(y, x%y);
@@ -139,14 +154,21 @@ class ExampleChapterFive{
 //		System.out.println(x + "팩토리얼은 " +Factorial.notRecursiveFactorial(x) + "입니다 ");
 		
 		
-		System.out.println("두 정수 입력");
-		int x = stdIn.nextInt();
-		int y = stdIn.nextInt();
+//		System.out.println("두 정수 입력");
+//		int x = stdIn.nextInt();
+//		int y = stdIn.nextInt();
+//		
+//		System.out.println(Euclid.notRecursive(x,y));
+//		
+//		
+		System.out.println("하노이의 탑");
+		System.out.print("원반의 개수 : ");
+		int n = stdIn.nextInt();
 		
-		System.out.println(Euclid.notRecursive(x,y));
-		
+		Hanoi.move(n, 1, 3);
 		
 		
 	}
+	
 	
 }
