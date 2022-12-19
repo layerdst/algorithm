@@ -64,10 +64,11 @@ void memoMove(int no, int x, int y){
  if(memo[n+1] != null){ 
   System.out.println(memo[n+1]);
  }else{
-  if(n>0){
+  if(no>0){
     if(no > 1) move(no-1, x, 6-x-y);
     System.out.println("원반 : "+ no-1 + x +" 기둥에서 " +  y +"기둥으로"); // 2 단계 
     if(no > 1) move(no-1, 6-x-y,y);
+    memo[n+1] = memo[n] + n + "\n" + memo[n-1];
   }else{
    memo[n+1] = "";
   }
