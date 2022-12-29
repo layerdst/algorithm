@@ -24,7 +24,7 @@ class BubbleSort{
 			for (int j = n - 1; j > i; j--) {
 				for (int m = 0; m < n - 1; m++){
 					System.out.printf("%3d %c" , a[m], (m != j-1) ? ' ' : (a[j - 1] > a[j]) ? '+' : '-');
-        		}
+        			}
 				System.out.printf("%3d\n", a[n - 1]);
 				ccnt++;
 				if (a[j - 1] > a[j]) {
@@ -41,5 +41,4 @@ class BubbleSort{
 		System.out.println("비교를 " + ccnt + "회 했습니다.");
 		System.out.println("교환을 " + scnt + "회 했습니다.");
 	}
-
 }
