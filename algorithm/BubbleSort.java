@@ -16,7 +16,7 @@ public class BubbleSort {
 		}
 	}
 
-	static void bubbleSort(int[] a, int n) {
+	static void bubbleSortScan(int[] a, int n) {
 		int ccnt = 0;			// 비교 회수
 		int scnt = 0;			// 교환 회수
 
