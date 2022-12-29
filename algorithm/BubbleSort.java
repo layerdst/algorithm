@@ -35,15 +35,11 @@ class BubbleSort{
 			}
 			for (int m = 0; m < n; m++){
 				System.out.printf("%3d  " , a[m]);
-      }
+      			}
 			System.out.println();
 		}
 		System.out.println("비교를 " + ccnt + "회 했습니다.");
 		System.out.println("교환을 " + scnt + "회 했습니다.");
 	}
-
-
-  
-  
 
 }
