@@ -37,7 +37,7 @@ class BubbleSort{
 				System.out.printf("%3d  " , a[m]);
       			}
 			System.out.println();
-		}
+		} gh
 		System.out.println("비교를 " + ccnt + "회 했습니다.");
 		System.out.println("교환을 " + scnt + "회 했습니다.");
 	}
