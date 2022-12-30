@@ -42,5 +42,16 @@ public class BubbleSort {
 		System.out.println("비교를 " + ccnt + "회 했습니다.");
 		System.out.println("교환을 " + scnt + "회 했습니다.");
 	}
-
+	
+	static void upgradeBubbleSortOne(){
+		for(int i =0; i<n-1;i++){
+			int exchangeCount = 0;
+			for(int j=n-1; j>i;j--){
+				swap(a, j-1, i);
+				exchangeCount++;
+			}
+			if(exchangeCount == 0) break;
+		}
+	}
+	
 }
