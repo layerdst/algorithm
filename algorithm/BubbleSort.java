@@ -47,10 +47,27 @@ public class BubbleSort {
 		for(int i =0; i<n-1;i++){
 			int exchangeCount = 0;
 			for(int j=n-1; j>i;j--){
-				swap(a, j-1, i);
-				exchangeCount++;
+				if(a[j-1] > a[j]{
+					swap(a, j-1, i);
+					exchangeCount++;
+				}
+				
 			}
 			if(exchangeCount == 0) break;
+		}
+	}
+	
+	static void upgradeBubbleSortTwo(){
+		for(int i=0; i<n-1; i++){
+			int lastChangeIdx = n-1;
+			for( int j = n-1; j>k ;j--){
+				if(a[j-1] > a[j]){
+					swap(a, j-1, j);
+					lastChangeIdx = j;
+				}
+			}
+			k = lastChangeIdx; 
+			
 		}
 	}
 	
